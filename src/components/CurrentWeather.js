@@ -41,4 +41,4 @@ function CurrentWeather({ keywordStore }) {
   )
 }
 
-export default CurrentWeather
+export default observer(CurrentWeather)
