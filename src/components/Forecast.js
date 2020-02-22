@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { observer } from "mobx-react"
-import { searchForecast } from "./request"
+import { searchForecast } from "../request"
 import ListGroup from "react-bootstrap/ListGroup"
 import Card from "react-bootstrap/Card"
 
-function Forecast({ keyWordStore }) {
+function Forecast({ keywordStore }) {
   const [forecast, setForecast] = useState({})
 
   const getWeatherForecast = async keyword => {
@@ -13,7 +13,7 @@ function Forecast({ keyWordStore }) {
   }
 
   useEffect(() => {
-    keyWordStore.keyword && getWeatherForecast(keywordStore.keyword)
+    keywordStore.keyword && getWeatherForecast(keywordStore.keyword)
   }, [keywordStore.keyword])
   return (
     <div>

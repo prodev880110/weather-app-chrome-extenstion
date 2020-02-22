@@ -1,9 +1,9 @@
 import React from 'react'
-import HomPage from "./HomePage"
+import HomePage from "./components/HomePage"
 import './App.css'
-import { KeyWordStore } from "./store"
+import { KeywordStore } from "./store"
 import Navbar from "react-bootstrap/Navbar"
-const KeyWordStore = new KeyWordStore()
+const keywordStore = new KeywordStore()
 
 function App() {
   return (

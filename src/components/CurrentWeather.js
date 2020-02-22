@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { observer } from "mobx-react"
-import { searchWeather } from "./request"
+import { searchWeather } from "../request"
 import ListGroup from "react-bootstrap/ListGroup"
 
 
