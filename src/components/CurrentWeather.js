@@ -8,32 +8,42 @@ function CurrentWeather({ keywordStore }) {
   const [ weather, setWeather ] = useState({})
 
   const getWeatherForecast = async keyword => {
-    const response = await searchWeather(keyword)
-    setWeather(response.data)
+    try {
+      const response = await searchWeather(keyword)
+      console.log(response)
+      setWeather(response.data)
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   useEffect(() => {
-    keywordStore.keyword && getWeatherForecast(keywordStore.keyword)
+    keywordStore.keyword && 
+    getWeatherForecast(keywordStore.keyword);
   }, [keywordStore.keyword])
+
+  const roundUp = (number) => {
+    return Math.max( Math.round(number * 10) / 10).toFixed(0)
+  }
 
   return (
     <div>
       {weather.main ? (
         <ListGroup>
           <ListGroup.Item>
-            Current Temperature: {weather.main.temp - 273.15 } C
+            Current Temperature: {roundUp(weather.main.temp)}<p>&deg;F</p>
           </ListGroup.Item>
           <ListGroup.Item>
-            High: {weather.main.temp_max - 273.15} C
+            High: {roundUp(weather.main.temp_max)}<p>&deg;F</p>
           </ListGroup.Item>
           <ListGroup.Item>
-            Low: {weather.main.temp_min - 273.15} C
+            Low: {roundUp(weather.main.temp_min)}<p>&deg;F</p>
           </ListGroup.Item>
           <ListGroup.Item>
             Pressure: {weather.main.pressure}
           </ListGroup.Item>
           <ListGroup.Item>
-            Humidity: {weather.main.humidity}
+            Humidity: {weather.main.humidity}%
           </ListGroup.Item>
         </ListGroup>
       ) : null}

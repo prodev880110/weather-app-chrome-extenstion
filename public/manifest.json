@@ -6,16 +6,12 @@
     "48": "logo192.png",
     "128": "logo512.png"
   },
-  "content_security_policy": "script-src 'self' 'sha256-WDhufSqZOEoWULzS4Nwz11MNyHzZClVYbQ2JSt1vfkw'; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'sha256-LN/ws4HlKi8kSrrg6c8BCnNRSSxzVqslW/5hI9a4kSw='; object-src 'self'",
   "permissions": [],
   "manifest_version": 2,
   "version": "0.0.1",
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "Weather Widget"
-  },
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  }
 }

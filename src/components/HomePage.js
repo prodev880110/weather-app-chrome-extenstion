@@ -32,6 +32,7 @@ function HomePage({ keywordStore }) {
       setInitialized(true)
     }
   })
+  
   return (
     <div className="page">
       <h1>Weather</h1>
