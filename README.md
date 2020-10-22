@@ -29,7 +29,7 @@ load build folder into chrome
 
 ## Features
 * Shows current weather 
-* 5 day forcase 
+* 5 day forecast 
 * avaliable on any site on the web
 
 To-do list:
