@@ -4,7 +4,15 @@ body {
 }
 .page {
   padding: 20px;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 p {
   display: inline-block;
+}
+.form{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }

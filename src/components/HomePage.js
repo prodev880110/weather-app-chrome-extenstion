@@ -14,7 +14,8 @@ const schema = yup.object({
   keyword: yup.string().required("Keyword is required")
 })
 
-function HomePage({ keywordStore }) {
+function HomePage({store}) {
+  console.log(store)
   const [initialized, setInitialized] = useState(false)
 
   const handleSubmit = async evt => {
@@ -23,16 +24,16 @@ function HomePage({ keywordStore }) {
       return
     }
     localStorage.setItem("keyword", evt.keyword)
-    keywordStore.setKeyword(evt.keyword)
+    store.setKeyword(evt.keyword)
   }
 
   useEffect(() => {
     if (!initialized) {
-      keywordStore.setKeyword(localStorage.getItem("keyword") || "")
+      store.setKeyword(localStorage.getItem("keyword") || "")
       setInitialized(true)
     }
   })
-  
+
   return (
     <div className="page">
       <h1>Weather</h1>
@@ -50,7 +51,7 @@ function HomePage({ keywordStore }) {
           isInvalid,
           errors
         }) => (
-            <Form noValidate onSubmit={handleSubmit}>
+            <Form noValidate onSubmit={handleSubmit}className="page">
               <Form.Row>
                 <Form.Group as={Col} md="12" controlId="keyword">
                   <Form.Label>City</Form.Label>
@@ -76,10 +77,10 @@ function HomePage({ keywordStore }) {
       <br />
       <Tabs defaultActiveKey="weather">
         <Tab eventKey="weather" title="Current Weather">
-          <CurrentWeather keywordStore={keywordStore} />
+          <CurrentWeather keywordStore={store} />
         </Tab>
         <Tab eventKey="forecast" title="Forecast">
-          <Forecast keywordStore={keywordStore} />
+          <Forecast keywordStore={store} />
         </Tab>
       </Tabs>
     </div>

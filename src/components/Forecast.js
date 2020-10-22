@@ -4,7 +4,8 @@ import { searchForecast } from "../request"
 import ListGroup from "react-bootstrap/ListGroup"
 import Card from "react-bootstrap/Card"
 
-function Forecast({ keywordStore }) {
+function Forecast({keywordStore}) {
+  console.log(keywordStore)
   const [forecast, setForecast] = useState({})
 
   const getWeatherForecast = async keyword => {
@@ -25,25 +26,6 @@ function Forecast({ keywordStore }) {
     return Math.max(Math.round(number * 10) / 10).toFixed(0)
   }
 
-  const dateFormat = (timeStamp) => {
-
-    let unix_timestamp = timeStamp
-    // Create a new JavaScript Date object based on the timestamp
-    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-    var date = new Date(unix_timestamp * 1000);
-    // Hours part from the timestamp
-    var hours = date.getHours();
-    // Minutes part from the timestamp
-    var minutes = "0" + date.getMinutes();
-    // Seconds part from the timestamp
-    var seconds = "0" + date.getSeconds();
-
-    // Will display time in 10:30:23 format
-    var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-    return formattedTime;
-  }
-
   function formatDate(date) {
     var d = new Date(date);
     var hh = d.getHours();
@@ -55,7 +37,7 @@ function Forecast({ keywordStore }) {
       h = hh - 12;
       dd = "PM";
     }
-    if (h == 0) {
+    if (h === 0) {
       h = 12;
     }
     m = m < 10 ? "0" + m : m;
