@@ -1,5 +1,5 @@
 # Weather App
-Weather App Chrome Extension 
+Weather App Chrome Extension consuming the http://api.openweathermap.org API
 
 ## Table of contents
 * [General info](#general-info)
