@@ -18,6 +18,7 @@ Simple Chrome plugin that gives easy access to the current weather and 5 day for
 
 ## Setup
 After getting api key from http://api.openweathermap.org run 
+
 `npm install`
 
 then run 
